@@ -1,5 +1,9 @@
 FROM debian:oldstable
 
-RUN apt update 
+RUN apt-get update && apt-get install -y nginx vim less
 
-CMD ["echo", "Hello World!"]
+COPY conf/.inputrc conf/.bashrc /root/
+
+EXPOSE 80
+ 
+ENTRYPOINT ["bash"] 
