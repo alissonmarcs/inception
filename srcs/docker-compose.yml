@@ -1,0 +1,59 @@
+services:
+  nginx:
+    build: "requirements/nginx/"
+    container_name: nginx
+    networks:
+      - app_network
+    ports:
+      - "9900:443"
+    volumes:
+      - wordpress_vol:/var/www/html/
+    depends_on:
+      - wordpress
+
+  wordpress:
+    build: "requirements/wordpress/"
+    container_name: wordpress
+    networks:
+      - app_network
+    secrets:
+      - db_credentials
+    volumes:
+      - wordpress_vol:/var/www/html/
+    depends_on:
+      - mariadb
+
+  mariadb:
+    build: "requirements/mariadb/"
+    container_name: mariadb
+    networks:
+      - app_network
+    secrets:
+      - db_credentials
+    volumes:
+      - mariadb_vol:/var/lib/mysql/
+
+networks:
+  app_network:
+    name: inception_network
+
+secrets:
+  db_credentials:
+    file: .env
+  
+volumes:
+  wordpress_vol:
+    name: wordpress_vol
+    # configurações do driver default
+    driver_opts:
+      o: bind
+      # indica que é uma montagem direta de diretorio, sem camadas adicionais
+      type: none
+      device: /home/alisson/data/wordpress/
+
+  mariadb_vol:
+    name: mariadb_vol
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/alisson/data/mariadb/
