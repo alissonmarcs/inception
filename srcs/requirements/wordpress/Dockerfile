@@ -9,7 +9,7 @@ RUN apt-get update && \
     wget https://wordpress.org/wordpress-6.8.tar.gz && \
     mkdir -p /var/www/html/ /run/php && \
     tar zxf wordpress-6.8.tar.gz && \
-    mv /wordpress/wp-config-sample.php /wordpress/any.php && \
+    mv /wordpress/wp-config-sample.php /wordpress/wp-config.php && \
     mv -ft /var/www/html/ wordpress/* && \
     rm -rf wordpress-6.8.tar.gz wordpress && \
     chmod +x /script.sh 
