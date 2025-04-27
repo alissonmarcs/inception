@@ -16,4 +16,5 @@ setup:
 	fi
 
 	@if ! -d $(DATA_FOLDER); then \
-		sudo mkdir -p $(WORDPRESS_FOLDER) $(MARIADB_FOLDER)
+		sudo mkdir -p $(WORDPRESS_FOLDER) $(MARIADB_FOLDER); \
+	fi
