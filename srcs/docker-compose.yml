@@ -5,7 +5,7 @@ services:
     networks:
       - app_network
     ports:
-      - "9900:443"
+      - "443:443"
     volumes:
       - wordpress_vol:/var/www/html/
     depends_on:
