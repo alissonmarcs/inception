@@ -41,3 +41,6 @@ prune: down
 
 start: 
 	docker-compose -f $(DOCKER_COMPOSE_FILE) start
+
+stop:
+	docker-compose -f $(DOCKER_COMPOSE_FILE) stop -t 4
