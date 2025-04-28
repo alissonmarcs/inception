@@ -49,11 +49,11 @@ volumes:
       o: bind
       # indica que é uma montagem direta de diretorio, sem camadas adicionais
       type: none
-      device: /home/alisson/data/wordpress/
+      device: /home/almarcos/data/wordpress/
 
   mariadb_vol:
     name: mariadb_vol
     driver_opts:
       o: bind
       type: none
-      device: /home/alisson/data/mariadb/
+      device: /home/almarcos/data/mariadb/
