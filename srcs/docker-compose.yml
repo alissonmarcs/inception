@@ -1,6 +1,7 @@
 services:
   nginx:
     build: "requirements/nginx/"
+    image: nginx
     container_name: nginx
     networks:
       - app_network
@@ -13,6 +14,7 @@ services:
 
   wordpress:
     build: "requirements/wordpress/"
+    image: wordpress
     container_name: wordpress
     networks:
       - app_network
@@ -25,6 +27,7 @@ services:
 
   mariadb:
     build: "requirements/mariadb/"
+    image: mariadb
     container_name: mariadb
     networks:
       - app_network
