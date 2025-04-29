@@ -1,7 +1,7 @@
 FROM debian:oldstable
 
 COPY conf/my.cnf /etc/mysql/
-COPY conf/script.sh /
+COPY tools/script.sh /
 
 RUN apt-get update && \
     apt-get -y install mariadb-server && \

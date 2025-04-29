@@ -1,6 +1,5 @@
 FROM debian:oldstable
 
-COPY conf/.inputrc conf/.bashrc /root/
 COPY conf/wordpress.conf /etc/nginx/conf.d/
 
 RUN apt-get update && \
