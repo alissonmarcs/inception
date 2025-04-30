@@ -7,8 +7,7 @@ WORDPRESS_FOLDER = $(DATA_FOLDER)/wordpress/
 MARIADB_FOLDER = $(DATA_FOLDER)/mariadb/
 DOCKER_COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
-ENV_FILE_URL = https://gist.githubusercontent.com/alissonmarcs/d949711826d48b6f404848a9ec712427/raw/0f3a4fdb49b471ebf80f86489ced470a6742e882/gistfile1.txt
-
+ENV_FILE_URL = https://gist.githubusercontent.com/alissonmarcs/d949711826d48b6f404848a9ec712427/raw/cd0eb5b6fdf2b172cd1f12094dadbc27ad8bafd9/gistfile1.txt
 all: setup
 
 setup:
