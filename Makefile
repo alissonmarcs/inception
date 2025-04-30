@@ -36,7 +36,7 @@ down:
 	docker-compose -f $(DOCKER_COMPOSE_FILE) down -v --rmi local
 
 prune: down
-	sudo rm -rf /home/almarcos/data/
+	sudo rm -rf /home/almarcos/data/ $(ENV_FILE)
 
 start: 
 	docker-compose -f $(DOCKER_COMPOSE_FILE) start
