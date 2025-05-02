@@ -33,6 +33,7 @@ up: setup
 	docker-compose -f $(DOCKER_COMPOSE_FILE) up
 
 down:
+	docker-compose -f $(DOCKER_COMPOSE_FILE) kill
 	docker-compose -f $(DOCKER_COMPOSE_FILE) down -v --rmi local
 
 prune: down
