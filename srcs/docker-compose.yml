@@ -2,7 +2,7 @@ services:
   nginx:
     restart: always
     build: "requirements/nginx/"
-    # image: nginx
+    image: nginx
     container_name: nginx
     networks:
       - app_network
@@ -16,7 +16,7 @@ services:
   wordpress:
     restart: always
     build: "requirements/wordpress/"
-    # image: wordpress
+    image: wordpress
     container_name: wordpress
     networks:
       - app_network
@@ -30,7 +30,7 @@ services:
   mariadb:
     restart: always
     build: "requirements/mariadb/"
-    # image: mariadb
+    image: mariadb
     container_name: mariadb
     networks:
       - app_network

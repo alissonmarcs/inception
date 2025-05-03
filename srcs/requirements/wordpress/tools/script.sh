@@ -5,7 +5,6 @@ then
     wget -O /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x /usr/local/bin/wp
     cd /var/www/html/
-    rm -rf ./*
     export $(cat /run/secrets/db_credentials)
     wp --allow-root core download
     wp --allow-root config create  --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_USER_PASS --dbhost=mariadb
@@ -13,7 +12,6 @@ then
     wp --allow-root user create $WP_USER $WP_USER_EMAIL --user_pass=$WP_USER_PASS --role=author
     wp --allow-root plugin install classic-editor --activate
     chown -R www-data:www-data .
-    chmod -R 755 /var/www/html
     mkdir -p /run/php/
 fi
 exec php-fpm7.4 -F --fpm-config /wordpress.conf
