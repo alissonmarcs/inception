@@ -8,23 +8,24 @@ MARIADB_FOLDER = $(DATA_FOLDER)/mariadb/
 DOCKER_COMPOSE_FILE = srcs/docker-compose.yml
 ENV_FILE = srcs/.env
 ENV_FILE_URL = https://gist.githubusercontent.com/alissonmarcs/d949711826d48b6f404848a9ec712427/raw/cd0eb5b6fdf2b172cd1f12094dadbc27ad8bafd9/gistfile1.txt
+
 all: setup
 
 setup:
 	@if ! grep -q almarcos.42.fr $(HOSTS) ; then \
-		printf "$(CYAN)Editing $(HOSTS) ... $(RESET)"; \
+		printf "$(CYAN)Editing $(HOSTS) ... $(RESET)\n"; \
  		sudo sed -i '1i 0.0.0.0\talmarcos.42.fr' $(HOSTS); \
 		printf "$(CYAN)Done! $(RESET)\n"; \
 	fi
 
 	@if [ ! -d $(DATA_FOLDER) ]; then \
-		printf "$(CYAN)Creating $(DATA_FOLDER) folder ... $(RESET)"; \
+		printf "$(CYAN)Creating $(DATA_FOLDER) folder ... $(RESET)\n"; \
 		sudo mkdir -p $(WORDPRESS_FOLDER) $(MARIADB_FOLDER); \
 		printf "$(CYAN)Done! $(RESET)\n"; \
 	fi
 
 	@if [ ! -e $(ENV_FILE) ]; then \
-		printf "$(CYAN)Downloading $(ENV_FILE) ... $(RESET)"; \
+		printf "$(CYAN)Downloading $(ENV_FILE) ... $(RESET)\n"; \
 		curl -o $(ENV_FILE) $(ENV_FILE_URL); \
 		printf "$(CYAN)Done! $(RESET)\n"; \
 	fi
